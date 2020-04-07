@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import QueueService from '@/services/QueueService.js'
+
 export default {
   name: 'QueueEntry',
   data() {
@@ -18,6 +20,13 @@ export default {
   methods: {
     enterQueue: function() {
       console.log("Enter queue for phone number: " + this.phone)
+      QueueService.joinQueue(this.phone)
+        .then(function(response) {
+          console.log(response)
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
     }
   }
 }
