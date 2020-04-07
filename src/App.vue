@@ -1,12 +1,18 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <QueueNav />
     <router-view/>
   </div>
 </template>
+
+<script>
+import QueueNav from '@/components/QueueNav.vue'
+export default {
+  components: {
+    QueueNav
+  }
+}
+</script>
 
 <style>
 #app {

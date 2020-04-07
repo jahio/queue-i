@@ -1,24 +1,11 @@
 # queue-i
 
-## Project setup
-```
-npm install
-```
+Screen 1
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
++ have some info text and text asking user to put his cell number.
++ Input to ask for Cell number (here i think we should have two input boxes - one for country code and one for the number)
++ button (saying register or something like that)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+2nd screen
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
++ a queue indicator with progress
