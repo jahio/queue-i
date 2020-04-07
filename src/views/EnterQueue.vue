@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="">
+    TODO: Form for entering phone number
   </div>
 </template>

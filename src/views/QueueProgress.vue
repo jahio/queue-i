@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
     <QueueCard v-for="person in queue" :key="person.phone" :person="person" />
   </div>
 </template>
