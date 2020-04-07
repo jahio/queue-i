@@ -7,6 +7,7 @@
 
 <script>
 import QueueNav from '@/components/QueueNav.vue'
+
 export default {
   components: {
     QueueNav

@@ -1,7 +1,9 @@
+/* eslint-disable */
+
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: 'http://qi.db.localhost',
+  baseURL: 'http://qi.db.localdev',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
@@ -11,6 +13,9 @@ const apiClient = axios.create({
 
 export default {
   getQueue() {
+    console.log("Retrieving queue...")
     return apiClient.get('/queue')
   }
 }
+
+/* eslint-enable */
