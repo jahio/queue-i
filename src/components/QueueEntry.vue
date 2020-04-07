@@ -28,22 +28,13 @@ export default {
           phone: this.phone
         }
       }).then(function(response) {
-        console.log(response.data)
-        debugger
-        this.phone = response.data
+        console.log(response)
+        // TODO: redirect user back to the queue list
         // $router.push({name: 'queue-progress'})
       })
-      // QueueService.joinQueue(this.phone)
-      //   .then(function(response) {
-      //     window.addEventListener('beforeunload', () => {
-      //       console.log("Adding event listener")
-      //     })
-          // Success - server is happy, now get the current queue status
-        //   console.log(response)
-        // })
-      //   .catch(function(error) {
-      //     console.log(error)
-      //   })
+        .catch(function(error) {
+          console.log(error)
+        })
     }
   }
 }
