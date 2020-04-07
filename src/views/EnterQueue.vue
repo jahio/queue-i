@@ -1,5 +1,16 @@
 <template>
   <div class="">
-    TODO: Form for entering phone number
+    <QueueEntry />
   </div>
 </template>
+
+<script>
+import QueueEntry from '@/components/QueueEntry.vue'
+
+export default {
+  name: 'EnterQueue',
+  components: {
+    QueueEntry
+  }
+}
+</script>
