@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import axios from 'axios'
 
 const apiClient = axios.create({
@@ -16,10 +14,8 @@ export default {
     console.log("Retrieving queue...")
     return apiClient.get('/queue')
   },
-  joinQueue(number) {
+  joinQueue(number, countrycode) {
     console.log("Fired joinQueue(" + number + ")")
-    return apiClient.post('/queue', { phone: number } )
+    return apiClient.post('/queue', { phone: number, countrycode: countrycode } )
   }
 }
-
-/* eslint-enable */

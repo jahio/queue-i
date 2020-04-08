@@ -9,8 +9,8 @@
 </template>
 
 <script>
-// import QueueService from '@/services/QueueService.js'
-import axios from 'axios'
+import QueueService from '@/services/QueueService.js'
+
 /* eslint-disable */
 export default {
   name: 'QueueEntry',
@@ -22,19 +22,12 @@ export default {
   },
   methods: {
     enterQueue: function() {
-      console.log("Enter queue for phone number: " + this.phone)
-      axios({
-        method: 'post',
-        url: 'http://qi.db.localdev/queue',
-        data: {
-          phone: this.phone,
-          countrycode: this.countrycode
-        }
-      }).then(function(response) {
-        console.log(response)
-        // TODO: redirect user back to the queue list
-        // $router.push({name: 'queue-progress'})
-      })
+      QueueService.joinQueue(this.phone, this.countrycode)
+        .then(function(response) {
+          console.log(response)
+          // TODO: redirect user back to the queue list
+          // $router.push({name: 'queue-progress'})
+        })
         .catch(function(error) {
           console.log(error)
         })
