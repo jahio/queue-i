@@ -3,7 +3,10 @@ module.exports = {
     headers: {
       'Cache-Control': 'no-store'
     },
-    disableHostCheck: true
+    disableHostCheck: true,
+    watchOptions: {
+      ignored: ['db.json', 'node_modules/**']
+    }
   },
   chainWebpack: (config) => {
     if (process.env.NODE_ENV === 'development') {

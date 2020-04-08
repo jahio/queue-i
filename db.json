@@ -1,0 +1,20 @@
+{
+  "queue": [
+    {
+      "countrycode": "2",
+      "phone": "(270) 555-1212"
+    },
+    {
+      "countrycode": "1",
+      "phone": "(555) 867-5309"
+    },
+    {
+      "countrycode": "353",
+      "phone": "+(55) 555 5555"
+    },
+    {
+      "phone": "121212",
+      "countrycode": "5"
+    }
+  ]
+}
