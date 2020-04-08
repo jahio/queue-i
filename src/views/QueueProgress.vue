@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <QueueCard v-for="person in queue" :key="person.phone" :person="person" />
+    <QueueCard v-for="person in queue" :key="person.phone" :phone="person.phone" :countrycode="person.countrycode" :enteredAt="person.enteredAt" />
   </div>
 </template>
 
