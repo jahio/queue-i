@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{ person.phone }}</p>
+    <p>+{{person.countrycode }} {{ person.phone }}</p>
   </div>
 </template>
 

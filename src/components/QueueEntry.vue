@@ -1,6 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="enterQueue">
+      <input type="text" v-model="countrycode" placeholder="Country Code">
       <input type="text" v-model="phone" placeholder="Enter your phone number">
       <button>Get in Line</button>
     </form>
@@ -15,7 +16,8 @@ export default {
   name: 'QueueEntry',
   data() {
     return {
-      phone: ''
+      phone: '',
+      countrycode: ''
     }
   },
   methods: {
@@ -25,7 +27,8 @@ export default {
         method: 'post',
         url: 'http://qi.db.localdev/queue',
         data: {
-          phone: this.phone
+          phone: this.phone,
+          countrycode: this.countrycode
         }
       }).then(function(response) {
         console.log(response)
