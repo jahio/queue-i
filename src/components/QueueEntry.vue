@@ -22,11 +22,10 @@ export default {
   },
   methods: {
     enterQueue: function() {
+      var router = this.$router // so we can access this.$router later
       QueueService.joinQueue(this.phone, this.countrycode)
         .then(function(response) {
-          console.log(response)
-          // TODO: redirect user back to the queue list
-          // $router.push({name: 'queue-progress'})
+          router.push({name: 'queue-progress'})
         })
         .catch(function(error) {
           console.log(error)
