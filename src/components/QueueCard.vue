@@ -18,22 +18,9 @@ export default {
     enteredAt: Number
   },
   mounted: function() {
-
-    // Figre out how long they've been waiting according to the API.
-    var now   = new Date(Date.now()).getTime()
-    var start = new Date(this.enteredAt * 1000).getTime()
-    var dist  = now - start
-
-    // Figure out how many minutes and seconds that is and apply
-    // that to the waitedFor object. Note that in JavaScript, the
-    // number we're working here (now, start and dist) is in
-    // *milliseconds** since the Unix Epoch. The API will need
-    // to return enteredAt in terms of *seconds*, so we divide
-    // or multiply by 1000 here to convert between seconds and
-    // milliseconds.
-
-    this.waitedFor.minutes = Math.floor(dist / (60 * 1000))
-    this.waitedFor.seconds = Math.floor((dist / 1000) - (this.waitedFor.minutes * 60))
+    // Start the updateTimer function immediately so there's not an unsightly
+    // second where all metrics read "zero"
+    this.updateTimer()
 
     // Set an interval to update the view every second (1000ms)
     this.interval = setInterval(() => {
@@ -42,12 +29,21 @@ export default {
   },
   methods: {
     updateTimer: function() {
-      this.waitedFor.seconds += 1
-      if (this.waitedFor.seconds == 60) {
-        // Every 60th second, reset seconds to zero and add a minute
-        this.waitedFor.minutes += 1
-        this.waitedFor.seconds = 0
-      }
+      // Figre out how long they've been waiting according to the API.
+      var now   = new Date(Date.now()).getTime()
+      var start = new Date(this.enteredAt * 1000).getTime()
+      var dist  = now - start
+
+      // Figure out how many minutes and seconds that is and apply
+      // that to the waitedFor object. Note that in JavaScript, the
+      // number we're working here (now, start and dist) is in
+      // *milliseconds** since the Unix Epoch. The API will need
+      // to return enteredAt in terms of *seconds*, so we divide
+      // or multiply by 1000 here to convert between seconds and
+      // milliseconds.
+
+      this.waitedFor.minutes = Math.floor(dist / (60 * 1000))
+      this.waitedFor.seconds = Math.floor((dist / 1000) - (this.waitedFor.minutes * 60))
     }
   }
 }
