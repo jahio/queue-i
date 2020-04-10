@@ -11,11 +11,9 @@ const apiClient = axios.create({
 
 export default {
   getQueue() {
-    console.log("Retrieving queue...")
     return apiClient.get('/queue')
   },
   joinQueue(number, countrycode) {
-    console.log("Fired joinQueue(" + number + ")")
     return apiClient.post('/queue', { phone: number, countrycode: countrycode } )
   }
 }
