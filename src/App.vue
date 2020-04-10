@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="queue-i">
     <QueueNav />
     <router-view/>
   </div>
@@ -20,7 +20,7 @@ export default {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
 }
 
-#app {
+#queue-i {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
