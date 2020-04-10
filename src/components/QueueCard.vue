@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <p>+{{ countrycode }} {{ phone }} Waited For: {{ waitedFor.minutes }} minutes, {{ waitedFor.seconds }} seconds</p>
+  <div class="queue-item">
+    <p>
+      +{{ countrycode }} {{ phone }}<br/>
+      <span class="small">
+        Waited For: {{ waitedFor.minutes }} minutes, {{ waitedFor.seconds }} seconds
+      </span>
+    </p>
   </div>
 </template>
 
@@ -51,18 +56,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.queue-item {
+  padding: 20px;
+  margin-bottom: 24px;
+  transition: all 0.2s linear;
+  cursor: pointer;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.queue-item:hover {
+  transform: scale(1.01);
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.small {
+  color: #666;
+  font-size: 70%;
 }
 </style>

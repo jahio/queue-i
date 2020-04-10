@@ -16,16 +16,23 @@ export default {
 </script>
 
 <style>
+.-shadow {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  box-sizing: border-box;
+  width: 500px;
+  padding: 0 20px 20px;
+  margin: 0 auto;
 }
 
 #nav {
   padding: 30px;
+  text-align: center;
 }
 
 #nav a {

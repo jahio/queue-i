@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="queue-list">
     <QueueCard v-for="person in queue" :key="person.phone" :phone="person.phone" :countrycode="person.countrycode" :enteredAt="person.enteredAt" />
   </div>
 </template>
@@ -30,3 +30,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .queue-list {
+    text-align: center;
+  }
+</style>
