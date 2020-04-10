@@ -29,11 +29,11 @@ export default {
     // number we're working here (now, start and dist) is in
     // *milliseconds** since the Unix Epoch. The API will need
     // to return enteredAt in terms of *seconds*, so we divide
-    // or multipley by 1000 here to convert between seconds and
+    // or multiply by 1000 here to convert between seconds and
     // milliseconds.
 
-    this.waitedFor.minutes = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60))
-    this.waitedFor.seconds = Math.floor((dist % (1000 * 60)) / 1000)
+    this.waitedFor.minutes = Math.floor(dist / (60 * 1000))
+    this.waitedFor.seconds = Math.floor((dist / 1000) - (this.waitedFor.minutes * 60))
 
     // Set an interval to update the view every second (1000ms)
     this.interval = setInterval(() => {
