@@ -14,7 +14,10 @@ export default {
     return apiClient.get('/queue')
   },
   joinQueue(number, countrycode) {
-    return apiClient.post('/queue', { phone: number, countrycode: countrycode } )
+    return apiClient.post('/queue', {
+      phone: number.replace(/[^0-9]/g, ''),
+      countrycode: countrycode.replace(/[^0-9]/g, '')
+    })
   },
   sortQueue(queue, asc) {
     // asc - boolean specifying if we want the queue sorted ascending or not

@@ -1,8 +1,9 @@
 <template>
   <div class="queue-list">
-    Currently sorted {{ sortOrder }} |
-    <button v-on:click="toggleSort">Sort {{ oppositeSortOrder }}</button>
-    <QueueCard v-for="person in queue" :key="person.phone" :phone="person.phone" :countrycode="person.countrycode" :enteredAt="person.enteredAt" />
+    <span v-if="this.asc">Newest First</span>
+    <span v-else>Oldest First</span>
+    <button v-on:click="toggleSort">Flip</button>
+    <QueueCard v-for="person in queue" :key="person.countrycode + person.phone" :phone="person.phone" :countrycode="person.countrycode" :enteredAt="person.enteredAt" />
   </div>
 </template>
 
@@ -27,20 +28,6 @@ export default {
       this.sortQueue()
     }
   },
-  computed: {
-    sortOrder: function() {
-      if (this.asc == true) {
-        return 'Ascending'
-      }
-      return 'Descending'
-    },
-    oppositeSortOrder: function() {
-      if (this.asc == true) {
-        return 'Descending'
-      }
-      return 'Ascending'
-    }
-  },
   methods: {
     toggleSort() {
       if (this.asc == false) {
@@ -57,11 +44,19 @@ export default {
   created() {
     QueueService.getQueue()
       .then(response => {
+        // Clean up the queue information we get from the API, because
+        // we want ONLY digits in our data, no punctuation, especially
+        // since format can differ by country. Not using \D because
+        // we'll end up with - characters in the data that way.
         this.queue = response.data
+        for(var i = 0; i < this.queue.length; i++) {
+          this.queue[i].countrycode = this.queue[i].countrycode.replace(/[^0-9]/g, '')
+          this.queue[i].phone = this.queue[i].phone.replace(/[^0-9]/g, '')
+        }
         this.sortQueue(false)
       })
       .catch(err => {
-        console.log(err.response)
+        console.log(err)
       })
   }
 }

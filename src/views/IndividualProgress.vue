@@ -10,8 +10,6 @@ import QueueService from '@/services/QueueService.js'
 
 export default {
   name: 'IndividualProgress',
-  // FIXME: Blank default values here, or pull from
-  // some kind of state management.
   data() {
     return {
       place: 0,
@@ -20,8 +18,6 @@ export default {
     }
   },
   created() {
-    // FIXME: If they aren't yet in the queue, force nav them to the join queue view
-    // On creation, fetch and load the needed info
     this.getPlaceInLine()
   },
   methods: {
