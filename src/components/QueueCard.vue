@@ -1,11 +1,13 @@
 <template>
   <div class="queue-item">
+    <router-link :to="{ name: 'individual-progress', params: { countrycode: countrycode, phone: phone } }">
     <p>
       +{{ countrycode }} {{ phone }}<br/>
       <span class="small">
         Waited For: {{ waitedFor.minutes }} minutes, {{ waitedFor.seconds }} seconds
       </span>
     </p>
+    </router-link>
   </div>
 </template>
 
@@ -69,5 +71,9 @@ export default {
 .small {
   color: #666;
   font-size: 70%;
+}
+a {
+  text-decoration: none;
+  color: #000;
 }
 </style>

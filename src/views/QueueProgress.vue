@@ -51,20 +51,7 @@ export default {
       }
     },
     sortQueue() {
-      // If asc is true, we want it ascending instead of descending.
-      // Otherwise, descending by default.
-      var order = 1
-      if(this.asc == true) {
-        order = -1
-      }
-      this.queue.sort((a,b) => {
-        if(a.enteredAt > b.enteredAt) {
-          return (order * 1)
-        }
-        else {
-          return (order * -1)
-        }
-      })
+      this.queue = QueueService.sortQueue(this.queue, this.asc)
     }
   },
   created() {

@@ -1,7 +1,7 @@
 <template>
   <div class='individual-progress'>
-    My Place In Line {{ place }}
-    <p>There are {{ place - 1 }} people in front of you.</p>
+    <p v-if="place - 1 > 0">There are {{ place - 1 }} people in front of you.</p>
+    <p v-else>Congrats, you're up!</p>
   </div>
 </template>
 
@@ -15,12 +15,12 @@ export default {
   data() {
     return {
       place: 0,
-      countrycode: '1',
-      phone: '5126981039'
+      countrycode: this.$route.params.countrycode,
+      phone: this.$route.params.phone
     }
   },
   created() {
-    // FIXME: Order the queue by time waited descending before checking position
+    // FIXME: If they aren't yet in the queue, force nav them to the join queue view
     // On creation, fetch and load the needed info
     this.getPlaceInLine()
   },
@@ -28,7 +28,7 @@ export default {
     getPlaceInLine: function() {
       QueueService.getQueue()
       .then(response => {
-        var queue = response.data
+        var queue = QueueService.sortQueue(response.data, false)
         var countrycode = this.countrycode
         var phone = this.phone
 
@@ -49,7 +49,4 @@ export default {
 </script>
 
 <style scoped>
-.individual-progress {
-  color: #ccc;
-}
 </style>
