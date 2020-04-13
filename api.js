@@ -15,12 +15,12 @@ app.use(function(req, res, next) {
 var queue = [
   {
     "countrycode": "1",
-    "phone": "(555) 867-5309",
+    "phone": "5558675309",
     "enteredAt": 1586373000
   },
   {
     "countrycode": "353",
-    "phone": "+(55) 555 5555",
+    "phone": "555555555",
     "enteredAt": 1586374000
   }
 ]
