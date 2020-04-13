@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import QueueProgress from '../views/QueueProgress.vue'
 import EnterQueue from '../views/EnterQueue.vue'
 import IndividualProgress from '../views/IndividualProgress.vue'
+import NotFoundComponent from '../views/NotFoundComponent.vue'
 
 Vue.use(VueRouter)
 
@@ -21,10 +22,12 @@ Vue.use(VueRouter)
     component: EnterQueue
   },
   {
-    path: '/status',
+    path: '/status/:countrycode/:phone',
     name: 'individual-progress',
-    component: IndividualProgress
-  }
+    component: IndividualProgress,
+    props: true
+  },
+  { path: '*', component: NotFoundComponent }
 ]
 
 const router = new VueRouter({
