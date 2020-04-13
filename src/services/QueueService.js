@@ -15,5 +15,22 @@ export default {
   },
   joinQueue(number, countrycode) {
     return apiClient.post('/queue', { phone: number, countrycode: countrycode } )
+  },
+  sortQueue(queue, asc) {
+    // asc - boolean specifying if we want the queue sorted ascending or not
+    // if false, descending (longest wait first)
+    var order = 1
+    if(asc == true) {
+      order = -1
+    }
+    queue.sort((a,b) => {
+      if(a.enteredAt > b.enteredAt) {
+        return (order * 1)
+      }
+      else {
+        return (order * -1)
+      }
+    })
+    return queue
   }
 }
