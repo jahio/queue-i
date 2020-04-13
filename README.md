@@ -9,3 +9,12 @@ Screen 1
 2nd screen
 
 + a queue indicator with progress
+
++ verify if its Responsive
++ UI Sort
++ Checkout standard UI component, like card view, essentially figure out how to use ready made components
++ point above also means find out the website where we can find good components
++ queue position for an individual, who got in the line
++ state management
++ communication/data transfer between two components
++ per component CSS
