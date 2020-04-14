@@ -10,6 +10,11 @@ const apiClient = axios.create({
 })
 
 export default {
+  leaveQueue(countrycode, phone) {
+    var cc = countrycode.replace(/[^0-9]/g, '')
+    var phn = phone.replace(/[^0-9]/g, '')
+    return apiClient.delete(`/queue/${cc}/${phn}`)
+  },
   getQueue() {
     return apiClient.get('/queue')
   },
