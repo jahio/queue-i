@@ -1,4 +1,12 @@
-# queue-i
+## Setup
+
+```
+$ git clone <this repo> <where you want it> && cd <where you want it>
+$ npm install
+$ node api.js & # will background the process and give you a pid
+$ npm run serve
+$ open http://localhost:8080 # MacOS; will open app in your default browser
+```
 
 Screen 1
 
